@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ 
+    <class name="hello.User" table="PERSON">
+ 
+        <id name="id" type="int" column="ID">
+         <generator class="native"/>
+      </id>
+ 
+        <property name="verify">
+            <column name="VERIFY"/>
+        </property>
+ 
+        <property name="autorization">
+            <column name="AUTORIZATION"/>
+        </property>
+        
+        <property name="admin">
+            <column name="ADMIN"/>
+        </property>
+        
+        <property name="personId">
+            <column name="PERSONID"/>
+        </property>
+        
+        <property name="name">
+            <column name="NAME"/>
+        </property>
+        
+        <property name="surname">
+            <column name="SURNAME"/>
+        </property>
+        
+        <property name="committee">
+            <column name="COMMITTEE"/>
+        </property>
+        
+        <property name="mail">
+            <column name="MAIL"/>
+        </property>
+        
+        <property name="phone" type="int">
+            <column name="PHONE"/>
+        </property>
+        
+        <property name="image">
+            <column name="IMAGE"/>
+        </property>
+        
+			
+		<set name="account" table="ACCOUNT" inverse="true">
+		<key>
+                <column name="PERSONID" not-null="true" />
+        </key>
+    	<one-to-many class="hello.FunctionalityModel"/>
+		</set>	
+		
+		<set name="functions" table="FUNCTION" inverse="true">
+		<key>
+                <column name="PERSONID" not-null="true" />
+        </key>
+    	<one-to-many class="hello.FunctionalityModel"/>
+		</set>
+		
+		<set name="practices" table="PRACTICES" inverse="true">
+		<key>
+				<column name="PERSONID" not-null="true" />
+		</key>
+    	<one-to-many class="hello.PracticesModel"/>
+		</set>
+
+    </class>
+</hibernate-mapping>

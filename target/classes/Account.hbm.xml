@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ 
+    <class name="hello.Account" table="ACCOUNT">
+ 
+        <id name="id" type="int" column="ID">
+         <generator class="assigned" />
+      </id>
+       
+        <property name="login">
+            <column name="LOGIN"/>
+        </property>
+        
+        <property name="password">
+            <column name="PASSWORD"/>
+        </property>
+        
+        <many-to-one name="personId" class="hello.User" fetch="select">
+            <column name="PERSONID" not-null="true" />
+        </many-to-one>
+
+    </class>
+ 
+</hibernate-mapping>
