@@ -131,7 +131,7 @@ public class DBUser {
         	function.setPersonId(user.getPersonId());
         }
         
-        session.save(user);
+        session.merge(user);
         
         session.getTransaction().commit(); 
         session.close();

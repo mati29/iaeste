@@ -32,8 +32,7 @@ public class WebController{
     @RequestMapping(value="/send", method=RequestMethod.POST)
     public ResponseEntity<User> checkPersonInfo(@RequestBody User user) {
     	DBUser db=new DBUser();
-    	User userc=new User(user);
-    	db.savePerson(userc);
+    	db.savePerson(user);
     	db.finalize();
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }

@@ -9,7 +9,7 @@
     <class name="hello.FunctionalityModel" table="FUNCTION">
  
         <id name="id" type="int" column="ID">
-         <generator class="native" />
+         <generator class="assigned" />
       </id>
  
         

@@ -9,7 +9,7 @@
      <class name="hello.PracticesModel" table="PRACTICE">
  
         <id name="id" type="int" column="ID">
-         <generator class="native" />
+         <generator class="assigned" />
       	</id>
         
         <property name="country">

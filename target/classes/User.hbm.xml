@@ -8,7 +8,7 @@
     <class name="hello.User" table="PERSON">
  
         <id name="id" type="int" column="ID">
-         <generator class="native"/>
+         <generator class="assigned"/>
       </id>
  
         <property name="verify">
@@ -52,21 +52,21 @@
         </property>
         
 			
-		<set name="account" table="ACCOUNT" inverse="true">
+		<set name="account" table="ACCOUNT" inverse="true" lazy="true" fetch="select">
 		<key>
                 <column name="PERSONID" not-null="true" />
         </key>
     	<one-to-many class="hello.FunctionalityModel"/>
 		</set>	
 		
-		<set name="functions" table="FUNCTION" inverse="true">
+		<set name="functions" table="FUNCTION" inverse="true" lazy="true" fetch="select">
 		<key>
                 <column name="PERSONID" not-null="true" />
         </key>
     	<one-to-many class="hello.FunctionalityModel"/>
 		</set>
 		
-		<set name="practices" table="PRACTICES" inverse="true">
+		<set name="practices" table="PRACTICES" inverse="true" lazy="true" fetch="select">
 		<key>
 				<column name="PERSONID" not-null="true" />
 		</key>
